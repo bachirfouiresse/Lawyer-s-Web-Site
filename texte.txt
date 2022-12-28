@@ -1,0 +1,71 @@
+CREATE TABLE IF NOT EXISTS `questionnaire` (
+  `num_q` int(11) NOT NULL AUTO_INCREMENT,
+  `dom_q` varchar(200) DEFAULT NULL,
+  `mail_q` varchar(299) DEFAULT NULL,
+  `Con_q` varchar(880) DEFAULT NULL,
+  `jawab` varchar(488) NOT NULL,
+  PRIMARY KEY (`num_q`),
+  KEY `num_q` (`num_q`)
+)
+
+
+CREATE TABLE IF NOT EXISTS `jugement` (
+  `num_d` int(11) NOT NULL,
+  `jug1` varchar(688) NOT NULL,
+  `jug2` varchar(688) NOT NULL,
+  `jug3` varchar(688) NOT NULL,
+  PRIMARY KEY (`num_d`)
+)
+
+
+CREATE TABLE IF NOT EXISTS `dossier` (
+  `num_d` varchar(50) NOT NULL,
+  `num_c` varchar(50) NOT NULL,
+  `date_cr` varchar(20) NOT NULL,
+  `num_tri` varchar(20) NOT NULL,
+  `num_cou` varchar(20) NOT NULL,
+  `num_tcom` varchar(20) NOT NULL,
+  `num_s` varchar(20) NOT NULL,
+  `num_n` varchar(20) NOT NULL,
+  `intime` varchar(1000) NOT NULL,
+  `sujet` varchar(2000) NOT NULL,
+  PRIMARY KEY (`num_d`)
+)
+
+
+CREATE TABLE IF NOT EXISTS `client` (
+  `num_c` int(11) NOT NULL,
+  `nom_c` varchar(200) NOT NULL,
+  `type_c` varchar(200) NOT NULL,
+  `mail_c` varchar(200) NOT NULL,
+  `tel` int(11) NOT NULL,
+  PRIMARY KEY (`num_c`)
+)
+
+
+CREATE TABLE IF NOT EXISTS `audince` (
+  `num_aud` int(11) NOT NULL AUTO_INCREMENT,
+  `num_d` int(11) NOT NULL,
+  `date_aud` varchar(20) NOT NULL,
+  `type_tri` varchar(500) NOT NULL,
+  `jug` varchar(500) NOT NULL,
+  PRIMARY KEY (`num_aud`,`num_d`)
+)
+
+
+CREATE TABLE IF NOT EXISTS `articles` (
+  `art_id` int(11) NOT NULL AUTO_INCREMENT,
+  `art_titre` varchar(55) NOT NULL,
+  `art_date` datetime NOT NULL,
+  `art_cont` text NOT NULL,
+  `img_art` varchar(500) NOT NULL,
+  PRIMARY KEY (`art_id`),
+  UNIQUE KEY `art_date` (`art_date`)
+)
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(50) NOT NULL,
+  `pass` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+)
